@@ -1,0 +1,7 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <p>Вы вышли из системы!</p>
+
+  <a class="list-item-link" href="{% url 'login'%}">Нажмите сюда, чтобы войти снова.</a>
+{% endblock %}

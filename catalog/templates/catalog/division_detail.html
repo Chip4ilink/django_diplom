@@ -1,0 +1,25 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Цех: {{ division.C_Name }}</h1>
+
+  <p>{{division.D_Date_Begin}} - {{division.D_Date_End|default_if_none:""}}</p>
+
+  <p>{{division.C_Notes|default_if_none:""}}</p>
+
+  <p class="add-link"><i class="fa-solid fa-pencil"></i><a href="{% url  'division_update' division.pk %}">Редактировать цех</a></p>
+  <p class="add-link"><i class="fa-solid fa-circle-xmark"></i><a href="{% url  'division_delete' division.pk %}">Удалить цех</a></p>
+  
+  <p>Всего приборов: <strong>{{division.device_set.count}}</strong></p>
+
+  <h4 class="list-in-detail-h4">Приборы</h4>
+  <div class="list-in-detail form-control">
+
+    {% for device in division.device_set.all %}
+      <strong><a class="list-item-link" href="{% url  'device-detail' device.pk %}"">{{device.C_Serial_Number}}</a></strong>
+      <p>{{device.F_Device_Types}}</p>
+      <p>Дата снятия прибора: {{device.D_Replace_Date|default_if_none:""}}</p>
+      <hr>
+    {% endfor %}
+  </div>
+{% endblock %}

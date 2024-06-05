@@ -1,0 +1,47 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+<title>Главная страница</title>
+{% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<h1>Главная страница</h1>
+
+  <p>Добро пожаловать в web-приложение для контроля и учета электроэнергии.</p>
+
+<!-- <h2>Динамичные данные</h2> -->
+
+  <p>Предприятие содержит следующие количества записей:</p>
+  <ul>
+    <li><strong>Приборы:</strong> {{ num_devices }}</li>
+    <li><strong>Цеха:</strong> {{ num_divisions }}</li>
+    <!-- <li><strong>Пользователи</strong> {{ num_instances_available }}</li> -->
+    <!-- <li><strong>Authors:</strong> {{ num_authors }}</li>
+    <li><strong>Books with 'dochka' in title:</strong> {{ num_books_name_contains_dochka }}</li> -->
+  </ul>
+
+  <!-- <p>
+   Вы посетили эту страницу {{ num_visits }} раз за текущую сессию.
+  </p> -->
+
+  <div class = "col-sm-10">
+  <figure class="highcharts-figure">
+    <div id="container"></div>
+    <p class="highcharts-description">
+        <!-- This chart shows how symbols and shapes can be used in charts.
+        Highcharts includes several common symbol shapes, such as squares,
+        circles and triangles, but it is also possible to add your own
+        custom symbols. In this chart, custom weather symbols are used on
+        data points to highlight that certain temperatures are warm while
+        others are cold. -->
+    </p>
+  </figure>
+  </div>
+
+{% endif %}
+
+{% endblock %}
+

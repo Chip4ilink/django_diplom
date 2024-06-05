@@ -1,0 +1,140 @@
+/* html,
+body {
+  margin: 0;
+  padding: 0;
+  border: 2px solid red;
+  box-sizing: border-box;
+  min-height: 100vh;
+} */
+/* html {
+	height: 100%;
+}
+body {
+  min-height: 100vh;
+} */
+body {
+    /* height: 480px; */
+    height: calc(100vh - 200px);
+    overflow-y: auto; 
+  }
+.col-sm-2 {
+    /* background-color: rgb(237, 255, 255); */
+    border-right: 5px solid #dcf3fa;
+    /* margin-right: 100px; */
+    /* height: 100vh; */
+}
+
+.add-link{
+    transition: all .2s ease;
+}
+
+.add-link a {
+    color:#000;
+    /* display: block; */
+    margin-top: 5px;
+    /* margin-bottom: 20px; */
+    margin-left: 5px;
+    text-decoration:none;
+    font-weight: 600;
+}
+
+
+.list-item{
+    font-weight: 400;
+}
+
+.list-item-link{
+    color:rgb(35, 185, 190);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all .1s ease;
+}
+
+.list-item-link:hover{
+    /* transform: scale(1.1); */
+    opacity: 0.6;
+}
+
+.add-link:hover, .add-link a:hover{
+    color:rgb(35, 185, 190);
+    transform: scale(1.005);
+}
+
+.list-in-detail{
+    font-weight: 400;
+    margin-left:20px;
+    margin-top:20px
+}
+
+.list-in-detail-h4{
+    margin-top: 30px;
+    margin-left:20px;
+    margin-bottom: 40px;
+}
+
+.sidebar-nav {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+    font-weight: 600;
+  }
+  
+  .col-sm-2 h3{
+    margin-bottom: 20px;
+  }
+
+.sidebar-nav li, .sidebar-nav a{
+    color:#000;
+    display: block;
+    margin-top: 5px;
+    text-decoration:none;
+    transition: all .2s ease;
+}
+
+.sidebar-nav li:hover, .sidebar-nav a:hover{
+    color:rgb(35, 185, 190);
+    transform: scale(1.01);
+}
+
+  .highcharts-figure,
+.highcharts-data-table table {
+    min-width: 310px;
+    max-width: 800px;
+    margin: 1em auto;
+}
+
+.highcharts-data-table table {
+    font-family: Verdana, sans-serif;
+    border-collapse: collapse;
+    border: 1px solid #ebebeb;
+    margin: 10px auto;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+.highcharts-data-table caption {
+    padding: 1em 0;
+    font-size: 1.2em;
+    color: #555;
+}
+
+.highcharts-data-table th {
+    font-weight: 600;
+    padding: 0.5em;
+}
+
+.highcharts-data-table td,
+.highcharts-data-table th,
+.highcharts-data-table caption {
+    padding: 0.5em;
+}
+
+.highcharts-data-table thead tr,
+.highcharts-data-table tr:nth-child(even) {
+    background: #f8f8f8;
+}
+
+.highcharts-data-table tr:hover {
+    background: #f1f7ff;
+}

@@ -1,0 +1,34 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Цех: {{ division.C_Name }}</h1>
+
+  <p>{{division.D_Date_Begin}} - {{division.D_Date_End|default_if_none:""}}</p>
+
+  <p>{{division.C_Notes|default_if_none:""}}</p>
+
+  <p class="add-link"><i class="fa-solid fa-pencil"></i><a href="{% url  'division_update' division.pk %}">Редактировать цех</a></p>
+  <p class="add-link"><i class="fa-solid fa-circle-xmark"></i><a href="{% url  'division_delete' division.pk %}">Удалить цех</a></p>
+  
+
+  <p>Всего показаний: <strong>{{division.meterreading_set.count}}</strong></p>
+
+  <h4 class="list-in-detail-h4">Показания</h4>
+  <div class="list-in-detail form-control">
+    {% for reading in division.meterreading_set.all %}
+      <strong><a class="list-item-link" href="{% url  'device-detail' reading.F_Devices.pk %}">{{reading.F_Devices}}</a></strong>
+      <br>
+      <p>Показание: <b>{{reading.N_Value}}</b></p>
+      <p>Тарифная зона: {{reading.F_Tariff_Zones}}</p>
+      <p>Дата показания: {{reading.D_Date}}</p>
+      
+      {% if reading.Img %}
+      <a class="list-item-link" href="{{reading.Img.url}}" target="_blank">Открыть фото</a>
+      {% endif %}
+      <hr width="150px">
+      <p style="margin-bottom: 0px;" class="add-link"><i class="fa-solid fa-pencil"></i><a href="{% url  'reading_update' reading.pk %}">Редактировать</a></p>
+      <p class="add-link"><i class="fa-solid fa-circle-xmark"></i><a href="{% url  'reading_delete' reading.pk %}">Удалить</a></p>
+      <hr>
+    {% endfor %}
+  </div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <form action="" method="post">
+      {% csrf_token %}
+      <table>
+      {{ form.as_table }}
+      </table>
+      <!-- {{form.F_Division}}<br> -->
+      <input type="submit" value="Сохранить" class="btn btn-success" style="margin-top: 20px;" />
+  </form>
+
+<a href="{% url 'import_csv'%}" class="list-item-link" style="font-weight: 600;">Внести показания из файла(CSV)</a>
+{% endblock %}

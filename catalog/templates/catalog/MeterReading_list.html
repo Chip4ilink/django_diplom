@@ -1,0 +1,20 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Показания</h1>
+
+    {% if meterreading_list %}
+    <ul>
+
+      {% for meterreading in meterreading_list %}
+      <li>
+        <!-- <a href="{{ meterreading.get_absolute_url }}">{{ meterreading.C_Name }} ({{meterreading.D_Date_Begin}} - {{meterreading.D_Date_End|default_if_none:""}})</a>  -->
+        <a href="">{{ meterreading }} - {{meterreading.F_Division}}</a>
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>Нет данных о показаниях.</p>
+    {% endif %}
+{% endblock %}

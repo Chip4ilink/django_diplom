@@ -1,0 +1,25 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Список цехов</h1>
+
+    <p class="add-link"><i class="fa-solid fa-circle-plus"></i><a href="{% url  'division_create' %}">Добавить цех</a></p>
+
+    {% if division_list %}
+    <ul class="list-item">
+
+      {% for division in division_list %}
+      <li>
+        <p>
+           <a class="list-item-link" href="{{ division.get_absolute_url }}"> приборы </a>
+          |<a class="list-item-link" href="{{ division.get_absolute_url }}/readings"> показания </a>
+          {{ division.C_Name }} ({{division.D_Date_Begin}} - {{division.D_Date_End|default_if_none:""}}) 
+        </p>
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>Нет данных о цехах.</p>
+    {% endif %}
+{% endblock %}

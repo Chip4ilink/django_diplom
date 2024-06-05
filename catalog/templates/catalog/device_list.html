@@ -1,0 +1,23 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Список приборов</h1>
+
+    <p class="add-link"><i class="fa-solid fa-circle-plus"></i><a href="{% url  'device_create' %}">Добавить прибор</a></p>
+
+    {% if device_list %}
+    <ul class="list-item">
+
+      {% for device in device_list %}
+      <li>
+        <a href="{% url  'device-detail' device.pk %}" class="list-item-link">{{ device.C_Serial_Number }}</a> ({{device.F_Device_Types}})
+      </li>
+      <p>Дата снятия прибора: {{device.D_Replace_Date|default_if_none:""}}</p>
+      <hr>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>Нет приборов в базе.</p>
+    {% endif %}
+{% endblock %}

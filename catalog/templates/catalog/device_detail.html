@@ -1,0 +1,34 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Прибор: {{ device.C_Serial_Number }}</h1>
+
+  <p>Тип прибора: {{device.F_Device_Types}}</p>
+
+  <p>Дата снятия: {{device.D_Date_End|default_if_none:""}}</p>
+
+  <p class="add-link"><i class="fa-solid fa-pencil"></i><a href="{% url  'device_update' device.pk %}">Редактировать прибор</a></p>
+  <p class="add-link"><i class="fa-solid fa-circle-xmark"></i><a href="{% url  'device_delete' device.pk %}">Удалить прибор</a></p>
+  
+
+  <p>Всего показаний: <strong>{{device.meterreading_set.count}}</strong></p>
+
+  <h4 class="list-in-detail-h4">Показания</h4>
+  <div class="list-in-detail form-control">
+    {% for reading in device.meterreading_set.all %}
+    <p>Показание: <b>{{reading.N_Value}}</b></p>
+    <p>Тарифная зона: {{reading.F_Tariff_Zones}}</p>
+    <p>Дата показания: {{reading.D_Date}}</p>
+    {% if reading.C_Notes %}
+    <p>Примечание: {{reading.C_Notes}}</p>
+    {%endif%}
+    {% if reading.Img %}
+    <a class="list-item-link" href="{{reading.Img.url}}" target="_blank">Открыть фото</a>
+    {% endif %}
+    <hr width="150px">
+    <p style="margin-bottom: 0px;" class="add-link"><i class="fa-solid fa-pencil"></i><a href="{% url  'reading_update' reading.pk %}">Редактировать</a></p>
+    <p class="add-link"><i class="fa-solid fa-circle-xmark"></i><a href="{% url  'reading_delete' reading.pk %}">Удалить</a></p>
+      <hr>
+    {% endfor %}
+  </div>
+{% endblock %}

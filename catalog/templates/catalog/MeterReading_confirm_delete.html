@@ -1,0 +1,12 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Удаление показания</h1>
+
+  <p>Вы уверены что хотите удалить показание: {{ meterreading }}?</p>
+
+  <form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Да, удалить." class="btn btn-danger"/>
+  </form>
+{% endblock %}
